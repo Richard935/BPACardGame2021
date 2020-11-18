@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3c3c0305b2e2adb4bbedd72a66e702d7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - AdjacentSPP1: {instanceID: 0}
+  - AdjacentSPP2: {instanceID: 0}
+  - AdjacentSPP3: {instanceID: 0}
+  - parentOfPlacementPoints: {instanceID: 0}
+  - settlementPrefab: {fileID: 714126918086696946, guid: 6ed14486719486b4089279cc6bc6078a,
+      type: 3}
+  - mainGame: {fileID: 11500000, guid: 6354d900f0670ca4dbe7834533d61ad8, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
