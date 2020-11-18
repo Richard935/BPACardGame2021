@@ -37,7 +37,7 @@ public class btnRoll : MonoBehaviour
         else
         {
             roll--;
-            MainScript.AllocateResources(sumOfRoll);
+            MainScript.AllocateResources(/*sumOfRoll*/9);
             MainScript.btnEndTurn.enabled = true;
         }
 
