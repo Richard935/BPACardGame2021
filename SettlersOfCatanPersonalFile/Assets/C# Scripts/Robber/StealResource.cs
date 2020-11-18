@@ -7,11 +7,11 @@ public class StealResource : MonoBehaviour
     
     public MainGame MainScript;
     public GameObject btnConfirm;
+    public int playerSelected;
+
 
     public void OnPlayerSelected()
     {
-        int playerSelected;
-        playerSelected = System.Convert.ToInt32(gameObject.tag);
 
         string[] resourceType = {"wood", "brick", "ore", "wheat", "sheep"};
         int intRandom;
@@ -25,8 +25,10 @@ public class StealResource : MonoBehaviour
             }
         }
         MainScript.setIndicators();
+        MainScript.txtStealInstructions.SetActive(false);
 
-        MainScript.txtStealIndicator.text = "You have stolen one " + resourceType[intRandom];
+        MainScript.txtStealIndicator.text = "You have stolen one " + resourceType[intRandom] + " from player " + (playerSelected + 1) + ".";
+        MainScript.txtStealIndAsObject.SetActive(true);
 
         MainScript.btnStealFromPlayer[0].SetActive(false);
         MainScript.btnStealFromPlayer[1].SetActive(false);
@@ -36,6 +38,8 @@ public class StealResource : MonoBehaviour
     public void OnConfirmClick()
     {
         btnConfirm.SetActive(false);
+        MainScript.txtStealIndAsObject.SetActive(false);
         MainScript.stealFromPlayerUI.SetActive(false);
+        MainScript.gameBoard.SetActive(true);
     }
 }

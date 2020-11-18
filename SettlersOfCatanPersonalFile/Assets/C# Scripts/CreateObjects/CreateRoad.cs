@@ -18,6 +18,7 @@ public class CreateRoad : MonoBehaviour
         var newObject = GameObject.Instantiate(roadPrefabs[player]);
         newObject.transform.position = gameObject.transform.position;
         newObject.transform.rotation = gameObject.transform.rotation;
+        newObject.transform.SetParent(MainScript.gameBoard.transform);
 
         MainScript.removeRoadAccess(gameObject);
 

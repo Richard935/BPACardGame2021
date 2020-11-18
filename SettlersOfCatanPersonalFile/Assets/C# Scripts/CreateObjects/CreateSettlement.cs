@@ -26,6 +26,7 @@ public class CreateSettlement : MonoBehaviour
 
         var newObject = GameObject.Instantiate(settlementPrefabs[player]);
         newObject.transform.position = position;
+        newObject.transform.SetParent(MainScript.gameBoard.transform);
 
         MainScript.removeSettlementAccess(AdjacentSPP1, AdjacentSPP2, AdjacentSPP3, gameObject);
         MainScript.addSettlement(newObject);

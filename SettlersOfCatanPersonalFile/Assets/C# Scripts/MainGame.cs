@@ -20,6 +20,7 @@ public class MainGame : MonoBehaviour
     public GameObject stealFromPlayerUI;
     public GameObject gameBoard;
     public Text txtStealIndicator;
+    public GameObject txtStealIndAsObject;
 
     //Pulls in the text boxes for each resource, current player indicator, and victory points indicator. Set in unity editor.
     public Text txtPlayerIndicator;
@@ -254,26 +255,27 @@ public class MainGame : MonoBehaviour
     }
     //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public GameObject[] btnStealFromPlayer;
+    public GameObject txtStealInstructions;
     public void StealingResource()
     {
         bool[] playersToStealFrom = FindPlayerOnTile();
+        bool btnIsActive = false;
 
-        if(playersToStealFrom[0] != false || playersToStealFrom[1] != false || playersToStealFrom[2] != false)
+        for(int i =0; i < 3; i++)
         {
-            if(playersToStealFrom[0] && doesPlayerHaveResources(0))
+            if (playersToStealFrom[i] && doesPlayerHaveResources(i))
             {
-                btnStealFromPlayer[0].SetActive(true);
-            }   
-            if (playersToStealFrom[1] && doesPlayerHaveResources(1))
-            {
-                btnStealFromPlayer[1].SetActive(true);
+                btnStealFromPlayer[i].SetActive(true);
+                btnIsActive = true;
             }
-            if (playersToStealFrom[2] && doesPlayerHaveResources(2))
-            {
-                btnStealFromPlayer[2].SetActive(true);
-            }
-            stealFromPlayerUI.SetActive(true);
         }
+
+        if (btnIsActive)
+        {
+            gameBoard.SetActive(false);
+            txtStealInstructions.SetActive(true);
+            stealFromPlayerUI.SetActive(true);
+        }    
 
     }
     private bool[] FindPlayerOnTile()
